@@ -38,6 +38,10 @@ const Login = () => {
     }
   };
 
+  const navigateRegister = () => {
+    navigate("/register");
+  };
+
   useEffect(() => {
     if (user || isSuccess) {
       navigate("/");
@@ -90,6 +94,15 @@ const Login = () => {
             {isLoading ? "Please Wait..." : "Login"}
           </button>
         </form>
+        <p className="mt-[15px]">
+          Don't have an account?{" "}
+          <span
+            className="ml-[5px] font-bold text-blue-600 cursor-pointer"
+            onClick={navigateRegister}
+          >
+            Register
+          </span>
+        </p>
       </div>
     </div>
   );

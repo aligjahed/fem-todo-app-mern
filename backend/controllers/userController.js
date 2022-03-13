@@ -65,7 +65,7 @@ const loginUser = asyncHandler(async (req, res) => {
   const unHashePassword = await bcrypt.compare(password, user.password);
 
   if (user && unHashePassword) {
-    res.status(401).json({
+    res.status(201).json({
       _id: user.id,
       name: user.name,
       email: user.email,

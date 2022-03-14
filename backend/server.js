@@ -4,6 +4,7 @@ const colors = require("colors");
 const bodyParser = require("body-parser");
 const connectDB = require("./config/db");
 const { errorHandler } = require("./middleware/errorhandler");
+const cpath = require("path");
 
 const port = process.env.PORT;
 
@@ -17,6 +18,17 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/todos", require("./routes/todosRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
+
+// Server frontend
+if (process.env.ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(
+      path.resolve("__dirname", "../", "frontend", "build", "index.html")
+    )
+  );
+}
 
 app.use(errorHandler);
 

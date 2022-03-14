@@ -4,7 +4,7 @@ const colors = require("colors");
 const bodyParser = require("body-parser");
 const connectDB = require("./config/db");
 const { errorHandler } = require("./middleware/errorhandler");
-const cpath = require("path");
+const path = require("path");
 
 const port = process.env.PORT;
 

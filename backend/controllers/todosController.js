@@ -69,17 +69,16 @@ const updateTodo = asyncHandler(async (req, res) => {
     throw new Error("Todo not found");
   }
 
-  if (!req.body.completed) {
-    res.status(400);
-    throw new Error("Please fill all required fileds");
-  }
-
   if (todo.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error("User not authorized");
   }
 
-  const updateTodo = await Todo.findOneAndUpdate(req.params.id, req.body);
+  const updatedTodo = {
+    completed: !todo.completed,
+  };
+
+  const updateTodo = await Todo.findByIdAndUpdate(req.params.id, updatedTodo);
 
   res.status(200).json(updateTodo);
 });

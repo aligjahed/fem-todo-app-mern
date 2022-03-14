@@ -5,7 +5,7 @@ import mobileDark from "../assets/images/bg-mobile-dark.jpg";
 
 const Background = () => {
   return (
-    <header className="w-screen absolute top-0 z-0">
+    <div className="w-full absolute top-0 z-0">
       <img
         className="hidden md:block dark:hidden w-screen"
         src={desktopLight}
@@ -26,7 +26,7 @@ const Background = () => {
         src={mobileDark}
         alt="background"
       />
-    </header>
+    </div>
   );
 };
 export default Background;

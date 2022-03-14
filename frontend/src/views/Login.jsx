@@ -57,13 +57,14 @@ const Login = () => {
   }, [user, isError, isSuccess, isLoading, message, dispath, navigate]);
 
   return (
-    <div className="relative flex flex-col justify-center items-center w-screen px-[20px] text-center">
+    <div className="relative flex flex-col justify-center items-center w-screen px-[20px] pt-[20px] pb-[50px] text-center">
       <div className="max-w-[540px] w-full px-[35px] py-[50px] rounded-[8px] shadow-lg bg-very_light_gray dark:bg-very_dark_desaturated_blue text-very_dark_grayish_blue dark:text-light_grayish_blue">
         <h1 className="flex justify-center items-center text-[40px]">
           <FaSignInAlt />
           <span className="ml-[15px]"></span>
           Login
         </h1>
+        <p className="mt-[10px] ">Login and check your Todos</p>
         <form className="text-left mt-[25px] w-full" onSubmit={onSubmit}>
           <div>
             <label className="text-2xl">Email :</label>
@@ -72,6 +73,7 @@ const Login = () => {
               type="email"
               name="email"
               id="email"
+              value={formData.email}
               placeholder="Enter your email"
               onChange={onChange}
             />
@@ -83,6 +85,7 @@ const Login = () => {
               type="password"
               name="password"
               id="password"
+              value={formData.password}
               placeholder="Enter your password"
               onChange={onChange}
             />

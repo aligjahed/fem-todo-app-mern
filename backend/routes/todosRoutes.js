@@ -10,7 +10,7 @@ const { protect } = require("../middleware/authMiddleware");
 
 router.get("/", protect, getTodos);
 router.post("/create", protect, createTodo);
-router.put("/update/:id", protect, updateTodo);
 router.delete("/delete/:id", protect, deleteTodo);
+router.put("/update/:id", protect, updateTodo);
 
 module.exports = router;

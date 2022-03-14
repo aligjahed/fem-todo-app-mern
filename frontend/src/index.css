@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Josefin Sans";
+  }
+}
+
+@layer components {
+  .uncompleted {
+    @apply relative rounded-[50%] w-[25px] h-[25px] border-[2px] border-gray-500 mr-[24px] hover:bg-gradient-to-r from-gradient_1 to-gradient_2 hover:border-0 cursor-pointer;
+  }
+
+  .completed {
+    @apply relative rounded-[50%] w-[25px] h-[25px] border-[2px] border-gray-500 mr-[24px] bg-gradient-to-r from-gradient_1 to-gradient_2 border-0 cursor-pointer;
+  }
+
+  .uncompletedIcon {
+    @apply absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-[10px] text-white hidden md:group-hover:block;
+  }
+
+  .completedIcon {
+    @apply absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-[10px] text-white;
+  }
+}
